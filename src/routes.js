@@ -8,7 +8,7 @@ routes.get('/', async (request, response) => {
     return response.send("Say hello to my little friend!!!");
 })
 
-routes.get('/transit-routes', async (request, response) => {
+routes.post('/transit-routes', async (request, response) => {
     
     const {origin, destination} = request.body;
     return response.json(await maps.getAddress(origin, destination));
