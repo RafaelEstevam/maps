@@ -4,6 +4,10 @@ const {Maps} = require('./maps');
 const routes = Router();
 const maps = new Maps();
 
+routes.get('/', async (request, response) => {
+    return response.send("Say hello to my little friend!!!");
+})
+
 routes.get('/transit-routes', async (request, response) => {
     
     const {origin, destination} = request.body;
