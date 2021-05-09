@@ -8,6 +8,6 @@ app.use(cors());
 app.use(express.json());
 app.use(routes);
 
-app.listen(3030, () => {
+app.listen(process.env.PORT || 3030, function(){
     console.log("Servidor de pé.");
-})
+});
