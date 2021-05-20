@@ -19,17 +19,25 @@ class Maps {
         }).filter((item) => {
             return item.travel_mode === 'TRANSIT'
         });
-        return {transport_lines, transport_tickets: transport_lines.length > 0 ? true : false}
+        return {transport_lines, transport_tickets: transport_lines.length > 0 ? true : false, transport_count: transport_lines.length, }
     }
 
     async getAddress(origin, destination){
+
+        var timestamp = new Date(2021, 5, 18).getTime();
+
+        console.log(timestamp);
+
         const directions = await client.directions({
             params: {
                 key: key,
                 origin: origin,
                 destination: destination,
                 mode: "transit",
-                language: "pt"
+                language: "pt",
+                arrival_time: timestamp,
+                transit_routing_preference: 'fewer_transfers'
+
             }
         })
         .then((response) => {
