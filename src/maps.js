@@ -34,7 +34,7 @@ class Maps {
 
     async getAddress(origin, destination){
 
-        const data = await new Date().setHours(8,0,0,0); // Considera sempre 8 horas da manhã para fazer a consulta
+        const data = await new Date().setHours(11,0,0,0); // Considera sempre 8 horas da manhã para fazer a consulta
 
         // console.log(new Date(data));
 
